@@ -1,10 +1,9 @@
-package uk.org.lidalia.http.client
+package uk.org.lidalia.http.core
 
 import java.io.InputStream
 
 import org.apache.commons.io.IOUtils
-import uk.org.lidalia.http.core.{ByteEntity, EmptyEntity, Entity, Request, ResponseHeader}
-import uk.org.lidalia.lang.ByteSeq
+import uk.org.lidalia.scalalang.ByteSeq
 
 object NoopEntityUnmarshaller extends EntityUnmarshaller[None.type] {
   override def unmarshal(request: Request[None.type, _], response: ResponseHeader, entityBytes: InputStream) = EmptyEntity

@@ -5,7 +5,7 @@ import java.util.Locale
 import org.joda.time.{DateTime, DateTimeZone}
 import org.scalatest.PropSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
-import uk.org.lidalia.DefaultLocale
+import uk.org.lidalia.scalalang.DefaultLocale
 import uk.org.lidalia.http.core.HeaderField
 
 class DateHeaderFieldTests extends PropSpec with TableDrivenPropertyChecks with DefaultLocale {

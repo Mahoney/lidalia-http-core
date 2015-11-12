@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets.UTF_8
 
 import org.apache.commons.io.IOUtils
 import uk.org.lidalia.http.core.MediaType.`application/octet-stream`
-import uk.org.lidalia.lang.ByteSeq
+import uk.org.lidalia.scalalang.ByteSeq
 
 trait Entity[+T] {
 

@@ -3,7 +3,7 @@ package uk.org.lidalia.http.core
 import org.scalatest
 import scalatest.PropSpec
 import scalatest.prop.TableDrivenPropertyChecks
-import uk.org.lidalia.net2.EqualsChecks.{equalsTest, possibleArgsFor, reflexiveTest}
+import uk.org.lidalia.scalalang.EqualsChecks.{equalsTest, possibleArgsFor, reflexiveTest}
 
 class HeaderFieldTests extends PropSpec with TableDrivenPropertyChecks {
 
