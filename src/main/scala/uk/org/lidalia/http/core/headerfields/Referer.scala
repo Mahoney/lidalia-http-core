@@ -1,6 +1,6 @@
 package uk.org.lidalia.http.core.headerfields
 
-import uk.org.lidalia.net2.Url
+import uk.org.lidalia.net.Url
 
 object Referer extends UrlHeaderFieldName {
 

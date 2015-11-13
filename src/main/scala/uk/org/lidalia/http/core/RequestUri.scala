@@ -1,7 +1,7 @@
 package uk.org.lidalia.http.core
 
 import uk.org.lidalia.lang.RichObject
-import uk.org.lidalia.net2.{PathAndQuery, Uri}
+import uk.org.lidalia.net.{PathAndQuery, Uri}
 
 import scala.util.Try
 

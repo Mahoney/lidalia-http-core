@@ -3,8 +3,8 @@ package uk.org.lidalia.http.core
 import java.io.InputStream
 
 import Method.GET
-import uk.org.lidalia.net2.Scheme.HTTP
-import uk.org.lidalia.net2.{HostAndPort, Scheme, Url}
+import uk.org.lidalia.net.Scheme.HTTP
+import uk.org.lidalia.net.{HostAndPort, Scheme, Url}
 
 object RequestBuilder {
 

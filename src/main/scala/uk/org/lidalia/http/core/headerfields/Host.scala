@@ -1,7 +1,7 @@
 package uk.org.lidalia.http.core.headerfields
 
 import uk.org.lidalia.http.core.HeaderField
-import uk.org.lidalia.net2.HostAndPort
+import uk.org.lidalia.net.HostAndPort
 
 import scala.util.Try
 

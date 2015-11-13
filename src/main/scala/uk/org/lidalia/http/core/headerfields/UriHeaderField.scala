@@ -2,7 +2,7 @@ package uk.org.lidalia.http.core.headerfields
 
 import uk.org.lidalia
 import lidalia.http.core.HeaderField
-import uk.org.lidalia.net2.Url
+import uk.org.lidalia.net.Url
 
 import scala.util.Try
 

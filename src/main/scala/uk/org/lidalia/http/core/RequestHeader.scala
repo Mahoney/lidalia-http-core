@@ -2,7 +2,7 @@ package uk.org.lidalia.http.core
 
 import uk.org.lidalia
 import lidalia.http.core.headerfields.Referer
-import lidalia.net2.Uri
+import lidalia.net.Uri
 
 import scala.collection.immutable
 

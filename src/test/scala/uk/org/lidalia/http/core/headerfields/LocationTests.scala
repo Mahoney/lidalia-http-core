@@ -3,7 +3,7 @@ package uk.org.lidalia.http.core.headerfields
 import SingleValueHeaderFieldNameTests.firstParseableValueReturned
 import org.scalatest.PropSpec
 import org.scalatest.prop.TableDrivenPropertyChecks
-import uk.org.lidalia.net2.Url
+import uk.org.lidalia.net.Url
 
 class LocationTests extends PropSpec with TableDrivenPropertyChecks {
   property("First Parseable Value Returned") {

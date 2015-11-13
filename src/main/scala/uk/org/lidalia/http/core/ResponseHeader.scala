@@ -3,7 +3,7 @@ package uk.org.lidalia.http.core
 import uk.org.lidalia
 import lidalia.http.core.headerfields.{Age, Date, Etag, LastModified, Location}
 import org.joda.time.{DateTime, Duration}
-import uk.org.lidalia.net2.Url
+import uk.org.lidalia.net.Url
 
 import scala.collection.immutable.Seq
 

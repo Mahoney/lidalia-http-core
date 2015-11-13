@@ -1,7 +1,7 @@
 package uk.org.lidalia.http.core
 
 import uk.org.lidalia.scalalang.ByteSeq
-import uk.org.lidalia.net2.Uri
+import uk.org.lidalia.net.Uri
 
 import scala.collection.immutable
 import scala.collection.immutable.Seq
