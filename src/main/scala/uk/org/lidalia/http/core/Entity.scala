@@ -31,7 +31,7 @@ trait Entity[+T] {
   }
 }
 
-class AnyEntity[T](val entity: T) extends Entity[T] {
+class AnyEntity[+T](val entity: T) extends Entity[T] {
 
   override def marshall(as: MediaType): InputStream = new ByteArrayInputStream(
     entity.toString.getBytes(
@@ -52,7 +52,7 @@ object EmptyEntity extends Entity[None.type ] {
   override def marshall(as: MediaType): InputStream = new ByteArrayInputStream(Array())
 }
 
-class EitherEntity[A, B](
+class EitherEntity[+A, +B](
   val eitherEntity: Either[Entity[A], Entity[B]]
 ) extends Entity[Either[A, B]] {
 

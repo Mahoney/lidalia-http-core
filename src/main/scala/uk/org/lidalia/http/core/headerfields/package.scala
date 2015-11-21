@@ -10,7 +10,7 @@ package object headerfields {
   implicit def instanceToSome[T](instance: T) = Some(instance)
   implicit def someToInstance[T](some: Some[T]) = some.get
 
-  class ToRichOption[A](val option: Option[A]) {
+  class ToRichOption[+A](val option: Option[A]) {
     def or[B >: A](default: => B): B = option.getOrElse(default)
     def ?[B](f: A => ?[B]): ?[B] = option.flatMap(f)
   }

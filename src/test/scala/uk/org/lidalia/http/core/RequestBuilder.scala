@@ -14,7 +14,7 @@ object RequestBuilder {
     hostAndPort: HostAndPort = HostAndPort("localhost"),
     uri: RequestUri = RequestUri("/mypath"),
     accept: Accept[T] = new Accept[None.type](List()) {
-      override def unmarshal(request: Request[None.type, _], response: ResponseHeader, entityBytes: InputStream) = EmptyEntity
+      override def unmarshal(request: Request[_, _], response: ResponseHeader, entityBytes: InputStream) = EmptyEntity
     }
   ): Request[T, None.type] = {
     Request(method, uri, accept, Nil)
