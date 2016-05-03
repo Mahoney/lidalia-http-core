@@ -10,6 +10,6 @@ object HeaderField {
 }
 
 class HeaderField protected(@Identity val name: String, @Identity val values: Seq[String]) extends RichObject {
-  override def toString = s"$name: $valueString}"
+  override def toString = s"$name: $valueString"
   def valueString = values.mkString(", ")
 }

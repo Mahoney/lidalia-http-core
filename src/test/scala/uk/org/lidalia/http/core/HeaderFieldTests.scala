@@ -33,8 +33,8 @@ class HeaderFieldTests extends PropSpec with TableDrivenPropertyChecks {
     ("Header-Field", List("value1", "value2"), "Header-Field: value1, value2")
   )
 
-  property("to string formats header field correctly") {
-    forAll(toStringProperties) { (name, values, result) =>
+  forAll(toStringProperties) { (name, values, result) =>
+    property(s"to string with $values formats header field as $result") {
       val headerField = HeaderField(name, values)
       assert( headerField.toString === result)
     }
