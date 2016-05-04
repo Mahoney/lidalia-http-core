@@ -3,14 +3,14 @@ package uk.org.lidalia.http.core
 import java.io.InputStream
 
 import Method.GET
-import uk.org.lidalia.net.Scheme.HTTP
+import uk.org.lidalia.net.Scheme.http
 import uk.org.lidalia.net.{HostAndPort, Scheme, Url}
 
 object RequestBuilder {
 
   def request[T](
     method: Method = GET,
-    scheme: Scheme = HTTP,
+    scheme: Scheme = http,
     hostAndPort: HostAndPort = HostAndPort("localhost"),
     uri: RequestUri = RequestUri("/mypath"),
     accept: Accept[T] = new Accept[None.type](List()) {
