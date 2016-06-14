@@ -44,7 +44,7 @@ class AnyEntity[+T](val entity: T) extends Entity[T] {
 
 class StringEntity(entity: String) extends AnyEntity[String](entity)
 
-class ByteEntity(val entity: ByteSeq) extends Entity[ByteSeq] {
+class ByteEntity(override val entity: ByteSeq) extends Entity[ByteSeq] {
 
   override def marshall(as: MediaType): InputStream = entity.toInputStream
 }

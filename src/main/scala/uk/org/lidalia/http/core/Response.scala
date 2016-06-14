@@ -51,6 +51,21 @@ object Response {
     )
   }
 
+  def apply(
+    status: Code,
+    headerFields: HeaderField*
+  )(
+    entity: String
+  ): Response[String] = {
+    new Response[String](
+      ResponseHeader(
+        status,
+        immutable.Seq(headerFields:_*)
+      ),
+      new AnyEntity(entity)
+    )
+  }
+
 //  def apply(
 //    code: Int,
 //    headerFields: (String, String)*

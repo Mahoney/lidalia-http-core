@@ -1,5 +1,8 @@
 package uk.org.lidalia.http.core
 
+import java.nio.charset.StandardCharsets.UTF_8
+import java.nio.charset.Charset
+
 import uk.org.lidalia
 import lidalia.http.core.headerfields.{Age, Date, Etag, LastModified, Location}
 import org.joda.time.{DateTime, Duration}
@@ -35,6 +38,10 @@ class ResponseHeader private(@Identity val code: Code,
   lazy val lastModified: ?[DateTime] = headerField(LastModified)
 
   lazy val etag: ?[String] = headerField(Etag)
+
+  lazy val charset: ?[Charset] = contentType.flatMap(_.charset)
+
+  def defaultedCharset(default: Charset = UTF_8) = charset.getOrElse(default)
 
   override def toString = s"HTTP/1.1 $code $reason\r\n${super.toString}"
 

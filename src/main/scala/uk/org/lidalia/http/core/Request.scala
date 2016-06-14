@@ -1,7 +1,8 @@
 package uk.org.lidalia.http.core
 
+import uk.org.lidalia.http.core.headerfields.Host
 import uk.org.lidalia.scalalang.ByteSeq
-import uk.org.lidalia.net.Uri
+import uk.org.lidalia.net.{HostAndPort, SchemeWithDefaultPort, Uri}
 
 import scala.collection.immutable
 import scala.collection.immutable.Seq
@@ -85,13 +86,23 @@ class Request[+A, +C] private(
   entity: Entity[C]
 ) extends Message[C](header, entity) {
 
-  def withMethod(method: Method) = new Request(RequestHeader(method, requestUri, header.headerFields), unmarshaller, entity)
+  def originalUrl(scheme: SchemeWithDefaultPort) = {
 
-  def withUri(newUri: RequestUri) = new Request(RequestHeader(method, newUri, header.headerFields), unmarshaller, entity)
+  }
+
+  def withMethod(method: Method) = new Request(header.withMethod(method), unmarshaller, entity)
+
+  def withUri(newUri: RequestUri) = new Request(header.withUri(newUri), unmarshaller, entity)
+
+  def withHeaderField(headerField: HeaderField) = new Request(header.withHeaderField(headerField), unmarshaller, entity)
 
   val method = header.method
 
   val requestUri = header.requestUri
 
-  def referer: ?[Uri] = header.referer
+  lazy val referer: ?[Uri] = header.referer
+
+  lazy val host: ?[HostAndPort] = header.host
+
+  lazy val userAgent: ?[String] = header.userAgent
 }
