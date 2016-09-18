@@ -47,6 +47,16 @@ class StringEntity(entity: String) extends AnyEntity[String](entity)
 class ByteEntity(override val entity: ByteSeq) extends Entity[ByteSeq] {
 
   override def marshall(as: MediaType): InputStream = entity.toInputStream
+
+
+
+  override def equals(other: Any): Boolean = other match {
+    case that: ByteEntity => entity == that.entity
+    case _ => false
+  }
+
+  override def hashCode(): Int = entity.hashCode()
+
 }
 
 object EmptyEntity extends Entity[None.type ] {
