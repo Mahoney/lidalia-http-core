@@ -9,6 +9,11 @@ import scala.collection.immutable.Set
 
 class MethodTests extends PropSpec with TableDrivenPropertyChecks {
 
+  property("whatevs") {
+    assert(GET.isIdempotent)
+    assert(!GET.isNotIdempotent)
+  }
+
   val methodSpecifications =
     Table(
       ("method",          "name",      "is safe", "is idempotent", "request may have entity", "response may have entity"),
@@ -22,7 +27,7 @@ class MethodTests extends PropSpec with TableDrivenPropertyChecks {
       (TRACE,             "TRACE",     true,      true,            false,                     true                      ),
       (Method("UNKNOWN"), "UNKNOWN",   false,     false,           true,                      true                      )
     )
-  
+
   property("a Method must have the correct specifications") {
     forAll(methodSpecifications) { (method, name, shouldBeSafe, shouldBeIdempotent, reqShouldBeAbleToHaveEntity, resShouldBeAbleToHaveEntity) =>
       assert(method.isSafe == shouldBeSafe)

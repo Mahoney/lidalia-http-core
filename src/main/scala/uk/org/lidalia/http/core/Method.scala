@@ -52,25 +52,25 @@ sealed abstract class Method(
   val responseMayHaveEntity: Boolean
 ) {
 
-  val isSafe: Boolean
-  final val isUnsafe: Boolean = !isSafe
+  def isSafe: Boolean
+  final def isUnsafe: Boolean = !isSafe
 
-  val isIdempotent: Boolean
-  final val isNotIdempotent: Boolean = !isIdempotent
+  def isIdempotent: Boolean
+  def isNotIdempotent: Boolean = !isIdempotent
 
-  final val requestMayNotHaveEntity: Boolean = !requestMayHaveEntity
+  final def requestMayNotHaveEntity: Boolean = !requestMayHaveEntity
 
-  final val responseMayNotHaveEntity: Boolean = !responseMayHaveEntity
+  final def responseMayNotHaveEntity: Boolean = !responseMayHaveEntity
 
   override val toString = name
 }
 
 sealed trait IdempotentMethod extends Method {
-  final override val isIdempotent = true
+  final override def isIdempotent = true
 }
 
 sealed trait UnsafeMethod extends Method {
-  final override val isSafe = false
+  final override def isSafe = false
 }
 
 final class NonIdempotentMethod private[core](
@@ -82,7 +82,7 @@ final class NonIdempotentMethod private[core](
   requestMayHaveEntity,
   responseMayHaveEntity
 ) with UnsafeMethod {
-  override final val isIdempotent = false
+  override def isIdempotent = false
 }
 
 final class SafeMethod private[core](
@@ -94,7 +94,7 @@ final class SafeMethod private[core](
   requestMayHaveEntity,
   responseMayHaveEntity
 ) with IdempotentMethod {
-  override final val isSafe = true
+  override def isSafe = true
 }
 
 final class UnsafeIdempotentMethod private[core](
